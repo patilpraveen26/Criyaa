@@ -89,60 +89,6 @@
       "gender": "Male",
       "email": "wcardall9@gizmodo.com",
       "Phone": "+963 477 149 7933"
-    },
-    {
-      "id": 11,
-      "first_name": "Danny",
-      "last_name": "Chiswell",
-      "DOB": "3/15/2023",
-      "gender": "Male",
-      "email": "dchiswell8@google.de",
-      "Phone": "+48 551 388 8610"
-    },
-    {
-      "id": 12,
-      "first_name": "Washington",
-      "last_name": "Cardall",
-      "DOB": "7/24/2023",
-      "gender": "Male",
-      "email": "wcardall9@gizmodo.com",
-      "Phone": "+963 477 149 7933"
-    },
-    {
-      "first_name": "Praveen",
-      "last_name": "Kumar",
-      "DOB": "26/01/2001",
-      "gender": "Male",
-      "email": "Patil@gmail.com",
-      "Phone": "7842753302",
-      "id": 13
-    },
-    {
-      "first_name": "Praveen",
-      "last_name": "Patil",
-      "DOB": "26/01/20",
-      "gender": "Male",
-      "email": "criyaa@yahoo.com",
-      "Phone": "7846548487",
-      "id": 14
-    },
-    {
-      "first_name": "Kumar",
-      "last_name": "Patil",
-      "DOB": "26/01/2001",
-      "gender": "Male",
-      "email": "pp@gmail.com",
-      "Phone": "1234567890",
-      "id": 15
-    },
-    {
-      "first_name": "Gnana",
-      "last_name": "Rama",
-      "DOB": "2023-08-08",
-      "gender": "Female",
-      "email": "g@gmail.com",
-      "Phone": "012356789",
-      "id": 16
     }
   ]
 }

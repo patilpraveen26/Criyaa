@@ -8,7 +8,7 @@ export function Main(){
     return(
         <div>
             <BrowserRouter>
-           <Link to='/empdetails'> <h2 className="bg-dark p-2 text-white" align='center'> Employee Details</h2></Link>
+           <Link to='/empdetails' style={{textDecoration:'none'}}> <h2 className="bg-dark p-2 text-white"  align='center'> Employee Details</h2></Link>
             
             <Routes>
                 <Route path='/empdetails' element={<EmployeData/>} />

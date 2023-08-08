@@ -1,8 +1,11 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Button, ButtonBase, ButtonGroup, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
 import TablePagination from '@mui/material/TablePagination';
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import DeleteIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from '@mui/icons-material/Edit';
+
  
 export  function EmployeData(){
     const[user,setUser]=useState([]);
@@ -36,10 +39,21 @@ export  function EmployeData(){
     function handleEditClick(id){
          navigate('/edit-details/'+id)
     }
+    function handleDeleteClick(id){
+        if(window.confirm('Do you want Delete?')){
+            axios({
+                method:'delete',
+                url:'http://localhost:3030/EmployeeData/'+id
+            })
+            alert("Deleted Successfully")
+            window.location.reload();
+        }
+        
+    }
     return(
         <div>
            <Paper>
-            <Link to='/empadd' className="btn btn-success">Add Employee Details</Link>
+            <Button variant="contained" color="success" href="/empadd" >Add Employee Details</Button>
            <TableContainer >
                 <Table stickyHeader>                                                         
                     <TableHead >
@@ -67,7 +81,12 @@ export  function EmployeData(){
                                     <TableCell>{data.gender}</TableCell>
                                     <TableCell>{data.email}</TableCell>
                                     <TableCell>{data.Phone}</TableCell>
-                                    <TableCell ><span className="btn btn-warning bi bi-pen" onClick={()=>handleEditClick(data.id)} > Edit</span></TableCell>
+                                    <TableCell >
+                                        <ButtonGroup variant="text">
+                                            <Button onClick={()=>handleEditClick(data.id)}><EditIcon/></Button>
+                                            <Button color="error" onClick={()=>handleDeleteClick(data.id)} ><DeleteIcon/></Button>
+                                        </ButtonGroup>
+                                    </TableCell>
                                 </TableRow>
                             ))
                         }

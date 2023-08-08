@@ -1,4 +1,4 @@
-import { Paper, TextField, Typography } from "@mui/material";
+import { Grid, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Button from '@mui/material/Button';
 import axios from "axios";
@@ -41,8 +41,9 @@ export function Edit_Details(){
     },[])
     return(
         <div>
-             <form className="d-flex container-fluid" onSubmit={handleSubmit}>
-                {/* <dl>
+             
+                {/*
+                <form className="d-flex container-fluid" > <dl>
                     <h2>Emplyee-Add</h2>
                     <dt>First Name</dt>
                     
@@ -59,24 +60,29 @@ export function Edit_Details(){
                     <input className="form-control" value={Phone} onChange={e=>setPhone(e.target.value)} type="text"/>
                     <button className='mt-2 me-2 btn btn-success'>Save</button>
                     <Link to='/empdetails' className="mt-2 btn btn-primary">Back</Link>
-                </dl> */}
-                <Stack direction={"column"}>
-                    <Typography variant="h4">Edit Employee Details</Typography>
-                </Stack>
-                
-                <Stack  direction={"column"} TextField prop sx={{width: 200}} spacing={2}>
-                    <TextField  label='First Name' value={first_name} onChange={e=>setFirst_name(e.target.value)}></TextField>
-                    <TextField label='Last Name' value={last_name} onChange={e=>setLast_name(e.target.value)}></TextField>
-                    <TextField label='DOB ' value={DOB} onChange={e=>setDOB(e.target.value)}></TextField>
-                    <TextField label='Gender' value={gender} onChange={e=>setGender(e.target.value)}></TextField>
-                    <TextField label='Email' value={email} onChange={e=>setEmail(e.target.value)}></TextField>
-                    <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
-                    <Stack direction='row'spacing={2}>
-                        <Button variant="contained" onSubmit={handleSubmit} color="success"type="submit">save</Button>
-                        <Button href="/empdetails" variant="contained" color="primary">Back</Button>
-                    </Stack> 
-                </Stack>
-            </form>
+                </dl> 
+                </form>
+                */}
+            
+               <Grid container justifyContent="center" alignItems="center">
+                    <Stack direction={"column"}>
+                        
+                    </Stack>
+                    
+                    <Stack  direction={"column"} TextField prop sx={{width: 300}} spacing={2}>
+                        <Typography variant="body1" sx={{fontWeight:'bold'}}>Edit Employee Details</Typography>
+                        <TextField  label='First Name' value={first_name} onChange={e=>setFirst_name(e.target.value)}></TextField>
+                        <TextField label='Last Name' value={last_name} onChange={e=>setLast_name(e.target.value)}></TextField>
+                        <TextField label='DOB ' value={DOB} onChange={e=>setDOB(e.target.value)}></TextField>
+                        <TextField label='Gender' value={gender} onChange={e=>setGender(e.target.value)}></TextField>
+                        <TextField label='Email' value={email} onChange={e=>setEmail(e.target.value)}></TextField>
+                        <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
+                        <Stack direction='row'spacing={2}>
+                            <Button variant="contained" onSubmit={handleSubmit} color="success"type="submit">save</Button>
+                            <Button href="/empdetails" variant="contained" color="primary">Back</Button>
+                        </Stack> 
+                    </Stack>
+               </Grid>
         </div>
     )
 }

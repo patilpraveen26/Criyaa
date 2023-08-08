@@ -44,7 +44,6 @@ export function EmpCreate(){
                     <button className='mt-2 me-2 btn btn-success'>Save</button>
                     <Link to='/empdetails' className="mt-2 btn btn-primary">Back</Link>
                 </dl>
-                
             </form>
         </React.Fragment>
     )
