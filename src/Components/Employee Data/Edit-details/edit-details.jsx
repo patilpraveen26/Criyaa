@@ -16,7 +16,7 @@ export function Edit_Details(){
     const navigate = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
-        const empdata={first_name,last_name,DOB,gender,email,Phone};
+        const [empdata]={first_name,last_name,DOB,gender,email,Phone};
         axios({
             method:'put',
             url:'http://localhost:3030/EmployeeData/'+empid,
