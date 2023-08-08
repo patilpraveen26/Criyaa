@@ -3,7 +3,7 @@ import { Stack } from "@mui/system";
 import Button from '@mui/material/Button';
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function Edit_Details(){
     const {empid}=useParams();
