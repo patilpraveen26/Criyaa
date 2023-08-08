@@ -72,9 +72,9 @@ export function Edit_Details(){
                     <TextField label='Email' value={email} onChange={e=>setEmail(e.target.value)}></TextField>
                     <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
                     <Stack direction='row'spacing={2}>
-                        <Button variant="contained" color="success"type="submit">save</Button>
-                        <Link to='/empdetails' ><Button variant="contained" color="primary">Back</Button></Link>
-                    </Stack>
+                        <Button variant="contained" onSubmit={handleSubmit} color="success"type="submit">save</Button>
+                        <Button href="/empdetails" variant="contained" color="primary">Back</Button>
+                    </Stack> 
                 </Stack>
             </form>
         </div>
