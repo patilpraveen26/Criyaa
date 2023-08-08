@@ -70,7 +70,7 @@ export function Edit_Details(){
                     </Stack>
                     
                     <Stack  direction={"column"} TextField prop sx={{width: 300}} spacing={2}>
-                        <Typography variant="body1" sx={{fontWeight:'bold'}}>Edit Employee Details</Typography>
+                        <Typography variant="h5" sx={{fontWeight:'bold'}}>Edit Employee Details</Typography>
                         <TextField  label='First Name' value={first_name} onChange={e=>setFirst_name(e.target.value)}></TextField>
                         <TextField label='Last Name' value={last_name} onChange={e=>setLast_name(e.target.value)}></TextField>
                         <TextField label='DOB ' value={DOB} onChange={e=>setDOB(e.target.value)}></TextField>
