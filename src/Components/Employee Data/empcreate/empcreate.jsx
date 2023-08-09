@@ -24,7 +24,7 @@ export function EmpCreate(){
     }
     return(
         <React.Fragment>
-            <form className="d-flex container-fluid" onSubmit={handleSubmit}>
+            <form  className="d-flex justify-content-center align-items-center container-fluid" style={{height:'70vh'}} onSubmit={handleSubmit}>
                 <dl>
                     <h2>Emplyee-Add</h2>
                     <dt>First Name</dt>

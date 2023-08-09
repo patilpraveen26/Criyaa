@@ -16,7 +16,7 @@ export function Edit_Details(){
     const navigate = useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
-        const [empdata]={first_name,last_name,DOB,gender,email,Phone};
+        const empdata={first_name,last_name,DOB,gender,email,Phone};
         axios({
             method:'put',
             url:'http://localhost:3030/EmployeeData/'+empid,
@@ -78,7 +78,7 @@ export function Edit_Details(){
                         <TextField label='Email' value={email} onChange={e=>setEmail(e.target.value)}></TextField>
                         <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
                         <Stack direction='row'spacing={2}>
-                            <Button variant="contained" onSubmit={handleSubmit} color="success"type="submit">save</Button>
+                            <Button variant="contained" onClick={handleSubmit} color="success" type="submit">save</Button>
                             <Button href="/empdetails" variant="contained" color="primary">Back</Button>
                         </Stack> 
                     </Stack>

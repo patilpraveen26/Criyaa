@@ -1,16 +1,20 @@
-import { Button, ButtonBase, ButtonGroup, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
+import { Button, ButtonBase, ButtonGroup, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material"
 import TablePagination from '@mui/material/TablePagination';
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import { maxWidth } from "@mui/system";
+
 
  
 export  function EmployeData(){
     const[user,setUser]=useState([]);
     const navigate=useNavigate()
-    
+    const[search,setSearch]=useState('');
+    const today = new Date().toLocaleDateString('en-GB',{ day: '2-digit', month: 'long', year: 'numeric' })
+
     const [page, pagechange] = useState(0);
     const [rowperpage, rowperpagechange] = useState(5);
     const handlechangepage = (event, newpage) => {
@@ -19,7 +23,6 @@ export  function EmployeData(){
 
     const handleRowsPerPage = (event) => {
         rowperpagechange(event.target.value);
-
         pagechange(0);
     };
 
@@ -51,11 +54,21 @@ export  function EmployeData(){
         
     }
     return(
-        <div>
-           <Paper>
-            <Button variant="contained" color="success" href="/empadd" >Add Employee Details</Button>
-           <TableContainer >
-                <Table stickyHeader>                                                         
+        <div className="container-fluid">
+           <Paper sx={{mx:'10rem',mt:'2rem'}}>
+            <h3>Date:{today}</h3>
+            {/* {today.getDate()+"-"+(today.getMonth()+1) +"-"+today.getFullYear()} */}
+            <TextField
+            style={{float:'right'}}
+            label="Search"
+            size="small"
+            sx={{ml:2}}
+            placeholder="Search Here"
+            onChange={(e)=>setSearch(e.target.value)}
+            />
+            <Button variant="contained" style={{float:'right'}} color="success" href="/empadd" >Add Employee Details</Button>
+           <TableContainer  >
+                <Table stickyHeader >                                                         
                     <TableHead >
                         <TableRow >
                             <TableCell sx={{fontWeight: 'bold'}}>Id</TableCell>
@@ -70,13 +83,11 @@ export  function EmployeData(){
                     </TableHead>
                     <TableBody>
                         {
+                            user .filter((data)=>
+                            data.first_name.toLowerCase().includes(search.toLowerCase()) || data.last_name.toLowerCase().includes(search.toLowerCase()) || data.email.toLowerCase().includes(search.toLowerCase()) || data.gender.toLowerCase().includes(search.toLowerCase())
+                            )
+                            .slice(page * rowperpage, page * rowperpage + rowperpage) 
                             
-                            user .filter((data)=>{
-                                return search ==''
-                                ? data
-                                :(data.first_name && data.last_name && data.gender).includes(search);
-                            })
-                            .slice(page * rowperpage, page * rowperpage + rowperpage)
                             .map(data=>(
                                 <TableRow key={data.id}>
                                     <TableCell>{data.id}</TableCell>
@@ -98,7 +109,7 @@ export  function EmployeData(){
                     </TableBody>
                 </Table>
            </TableContainer>
-           <TablePagination
+           <TablePagination 
                 rowsPerPageOptions={[5,10,15,20]}
                 rowsPerPage={rowperpage}
                 page={page}

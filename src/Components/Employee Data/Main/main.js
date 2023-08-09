@@ -10,7 +10,7 @@ export function Main(){
             <BrowserRouter>
            <Link to='/empdetails' style={{textDecoration:'none'}}> <h2 className="bg-dark p-2 text-white"  align='center'> Employee Details</h2></Link>
             
-            <Routes>
+            <Routes >
                 <Route path='/empdetails' element={<EmployeData/>} />
                 <Route path="/edit-details/:empid" element={<Edit_Details/>}/>
                 <Route path="/empadd" element={<EmpCreate/>} />
