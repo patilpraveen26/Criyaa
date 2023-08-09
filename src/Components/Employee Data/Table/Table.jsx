@@ -71,7 +71,12 @@ export  function EmployeData(){
                     <TableBody>
                         {
                             
-                            user .slice(page * rowperpage, page * rowperpage + rowperpage)
+                            user .filter((data)=>{
+                                return search ==''
+                                ? data
+                                :(data.first_name && data.last_name && data.gender).includes(search);
+                            })
+                            .slice(page * rowperpage, page * rowperpage + rowperpage)
                             .map(data=>(
                                 <TableRow key={data.id}>
                                     <TableCell>{data.id}</TableCell>
