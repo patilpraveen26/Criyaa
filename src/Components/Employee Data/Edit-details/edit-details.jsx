@@ -1,5 +1,5 @@
 import { Grid, Paper, TextField, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
+import { Stack, styled } from "@mui/system";
 import Button from '@mui/material/Button';
 import axios from "axios";
 import { useEffect, useState } from "react"
@@ -40,8 +40,8 @@ export function Edit_Details(){
         })
     },[])
     const MyComponent = styled('div')({
-        color: 'darkslategray',
-        backgroundColor: 'skyblue',
+        color: 'white',
+        backgroundColor: 'black',
         padding: 8,
         borderRadius: 4,
     })
@@ -69,6 +69,7 @@ export function Edit_Details(){
                 </dl> 
                 </form>
                 */}
+                
             
                <Grid container justifyContent="center" alignItems="center">
                     <Stack direction={"column"}>
@@ -76,7 +77,7 @@ export function Edit_Details(){
                     </Stack>
                     
                     <Stack  direction={"column"} TextField prop sx={{width: 300}} spacing={2}>
-                        <Typography variant="h5" sx={{fontWeight:'bold'}}>Edit Employee Details</Typography>
+                        <MyComponent><Typography variant="h5" sx={{fontWeight:'bold'}}>Edit Employee Details</Typography></MyComponent>
                         <TextField  label='First Name' value={first_name} onChange={e=>setFirst_name(e.target.value)}></TextField>
                         <TextField label='Last Name' value={last_name} onChange={e=>setLast_name(e.target.value)}></TextField>
                         <TextField label='DOB ' value={DOB} onChange={e=>setDOB(e.target.value)}></TextField>
