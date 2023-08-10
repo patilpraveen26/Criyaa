@@ -1,11 +1,11 @@
-import { Button, ButtonBase, ButtonGroup, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material"
+import { Button, ButtonGroup, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material"
 import TablePagination from '@mui/material/TablePagination';
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
-import { maxWidth, styled } from "@mui/system";
+
 
 
  
@@ -67,7 +67,7 @@ export  function EmployeData(){
             <Button variant="contained" sx={{float:'right'}} color="success" href="/empadd" >Add Employee Details</Button>
            <TableContainer  >
                 <Table  stickyHeader>                                                         
-                    <TableHead  >
+                    <TableHead sx={{backgroundColor:'grey'}} >
                         <TableRow >
                             <TableCell >Id</TableCell>
                             <TableCell >First_Name</TableCell>
