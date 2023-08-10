@@ -39,6 +39,12 @@ export function Edit_Details(){
             setPhone(res.data.Phone)
         })
     },[])
+    const MyComponent = styled('div')({
+        color: 'darkslategray',
+        backgroundColor: 'skyblue',
+        padding: 8,
+        borderRadius: 4,
+    })
     return(
         <div>
              
