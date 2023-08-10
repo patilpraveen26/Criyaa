@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import { Box,boxShadow } from "@mui/system";
+
 
 
 
@@ -54,22 +56,20 @@ export  function EmployeData(){
     }
     return(
         <div className="container-fluid">
-           <Paper sx={{mx:'auto',mt:'2rem'}}>
-            <h3 className="ms-2" >Date:{today}</h3>
-            {/* {today.getDate()+"-"+(today.getMonth()+1) +"-"+today.getFullYear()} */}
+           <Paper sx={{maxWidth:'80%',mx:'auto',mt:'2rem',}}>
+            <Box sx={{float:'left', m:2,}} variant="outlined" >Date:{today}</Box>
             <TextField
             label="Search"
             size="small"
-            sx={{ml:2,mr:2,float:'right'}}
+            sx={{ml:2,mr:2,mb:2,float:'right'}}
             placeholder="Search Here"
             onChange={(e)=>setSearch(e.target.value)}
             />
             <Button variant="contained" sx={{float:'right'}} color="success" href="/empadd" >Add Employee Details</Button>
-           <TableContainer  >
-                <Table  stickyHeader>                                                         
-                    <TableHead sx={{backgroundColor:'grey'}} >
+           <TableContainer >
+                <Table  >                                                         
+                    <TableHead  sx={{backgroundColor:'lightgrey'}} >
                         <TableRow >
-                            <TableCell >Id</TableCell>
                             <TableCell >First_Name</TableCell>
                             <TableCell >Last_Name</TableCell>
                             <TableCell >DOB</TableCell>
@@ -88,7 +88,6 @@ export  function EmployeData(){
                             
                             .map(data=>(
                                 <TableRow key={data.id}>
-                                    <TableCell>{data.id}</TableCell>
                                     <TableCell>{data.first_name}</TableCell>
                                     <TableCell>{data.last_name}</TableCell>
                                     <TableCell>{data.DOB}</TableCell>
@@ -108,7 +107,7 @@ export  function EmployeData(){
                 </Table>
            </TableContainer>
            <TablePagination 
-                rowsPerPageOptions={[5,10,15,20]}
+                rowsPerPageOptions={[5,10,15]}
                 rowsPerPage={rowperpage}
                 page={page}
                 count={user.length}
