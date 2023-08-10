@@ -96,7 +96,7 @@ export  function EmployeData(){
                                     <TableCell>{data.email}</TableCell>
                                     <TableCell>{data.Phone}</TableCell>
                                     <TableCell >
-                                        <ButtonGroup variant="text">
+                                        <ButtonGroup  variant="text">
                                             <Button onClick={()=>handleEditClick(data.id)}><EditIcon/></Button>
                                             <Button color="error" onClick={()=>handleDeleteClick(data.id)} ><DeleteIcon/></Button>
                                         </ButtonGroup>
