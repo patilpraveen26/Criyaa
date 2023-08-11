@@ -37,15 +37,6 @@
       "Phone": "+62 170 931 7353"
     },
     {
-      "id": 5,
-      "first_name": "Tove",
-      "last_name": "Bilbee",
-      "DOB": "12/17/2022",
-      "gender": "Female",
-      "email": "tbilbee4@redcross.org",
-      "Phone": "+359 621 250 4126"
-    },
-    {
       "first_name": "Rosemarie",
       "last_name": "Wigley",
       "DOB": "6/1/2023",
@@ -89,15 +80,6 @@
       "gender": "Male",
       "email": "wcardall9@gizmodo.com",
       "Phone": "+963 477 149 7933"
-    },
-    {
-      "first_name": "Narayana",
-      "last_name": "Narayana",
-      "DOB": "2023-08-08",
-      "gender": "Male",
-      "email": "narayana@gmail.com",
-      "Phone": "0123456789",
-      "id": 11
     }
   ]
 }

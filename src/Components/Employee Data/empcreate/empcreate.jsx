@@ -20,7 +20,7 @@ export function EmpCreate(){
             data:empdata
         })
         navigate('/empdetails')
-        alert(JSON.stringify(empdata))
+        alert('Details Added Successfully')
     }
     return(
         <React.Fragment>

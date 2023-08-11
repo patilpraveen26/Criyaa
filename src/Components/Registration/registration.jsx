@@ -1,4 +1,5 @@
 import { Formik, useFormik, validateYupSchema } from "formik";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import *as yup from "yup";
 export function Register(){
@@ -61,6 +62,7 @@ export function Register(){
         })
         
     })
+    const today = new Date().toLocaleDateString()
 
     return(
         <div>
@@ -89,7 +91,7 @@ export function Register(){
                     <dd><input type="password" placeholder="Enter Password" name="Password" onChange={formik.handleChange} className="form-control"/></dd>
                     <p className="text-danger">{formik.errors.Password}</p>
                     <dt>DOB</dt>
-                    <dd><input type="date" className='form-control' name="DOB" onChange={formik.handleChange} /></dd>
+                    <dd><input type="date" className='form-control'  name="DOB" onChange={formik.handleChange} /></dd>
                     <button className="mt-4 w-100 btn btn-primary">Register</button>
                     <p className="mt-2">Exsisting User ? <Link style={{textDecoration:'none'}} to='/login'>Login</Link></p>
                 </dl>

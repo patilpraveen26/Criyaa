@@ -5,13 +5,37 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
-import { Box,boxShadow } from "@mui/system";
+import { Box } from "@mui/system";
+// import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
 
  
 export  function EmployeData(){
+
+    const [open, setOpen] = React.useState(false);
+    const [id,setId]=useState('')
+
+    const handleClickOpen = (id) => {
+        setId(id)
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+        axios({
+            method:'delete',
+            url:'http://localhost:3030/EmployeeData/'+id
+        })
+        window.location.reload()
+      setOpen(false);
+    };
+
     const[user,setUser]=useState([]);
     const navigate=useNavigate()
     const[search,setSearch]=useState('');
@@ -44,16 +68,16 @@ export  function EmployeData(){
     function handleEditClick(id){
          navigate('/edit-details/'+id)
     }
-    function handleDeleteClick(id){
-        if(window.confirm('Do you want Delete?')){
-            axios({
-                method:'delete',
-                url:'http://localhost:3030/EmployeeData/'+id
-            })
-            alert("Deleted Successfully")
-            window.location.reload();
-        }  
-    }
+    // function handleDeleteClick(id){
+    //     if(window.confirm('Do you want Delete?')){
+    //         axios({
+    //             method:'delete',                                                         Html Confirm 
+    //             url:'http://localhost:3030/EmployeeData/'+id
+    //         })
+    //         alert("Deleted Successfully")
+    //         window.location.reload();
+    //     }  
+    // }
     return(
         <div className="container-fluid">
            <Paper sx={{maxWidth:'80%',mx:'auto',mt:'2rem',}}>
@@ -98,7 +122,7 @@ export  function EmployeData(){
                                     <TableCell >
                                         <ButtonGroup  variant="text">
                                             <Button onClick={()=>handleEditClick(data.id)}><EditIcon/></Button>
-                                            <Button color="error" onClick={()=>handleDeleteClick(data.id)} ><DeleteIcon/></Button>
+                                            <Button color="error"  ><DeleteIcon onClick={(e)=>handleClickOpen(data.id)} /></Button>
                                         </ButtonGroup>
                                     </TableCell>
                                 </TableRow>
@@ -108,16 +132,37 @@ export  function EmployeData(){
                 </Table>
            </TableContainer>
            <TablePagination 
-                rowsPerPageOptions={[5,10,15]}
+                sx={{mt:2}}
+                component="div"
+                rowsPerPageOptions={[5,10,15,20]}
                 rowsPerPage={rowperpage}
                 page={page}
                 count={user.length}
-                component="div"
                 onPageChange={handlechangepage}
                 onRowsPerPageChange={handleRowsPerPage}
                 />
-                
            </Paper> 
+                <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+                 >
+                <DialogTitle id="alert-dialog-title">
+                {"Do Want Delete"}
+                </DialogTitle>
+                <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                Are you Sure,You Want to Delete ?
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleClose}>No</Button>
+                <Button onClick={handleClose} autoFocus>
+                    Yes
+                </Button>
+                </DialogActions>
+            </Dialog>
         </div>
         )
 }
