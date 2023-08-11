@@ -82,7 +82,8 @@ export  function EmployeData(){
                     <TableBody>
                         {
                             user .filter((data)=>
-                            data.first_name.toLowerCase().includes(search.toLowerCase()) || data.last_name.toLowerCase().includes(search.toLowerCase()) || data.email.toLowerCase().includes(search.toLowerCase()) || data.gender.toLowerCase().includes(search.toLowerCase())
+                            data.first_name.toLowerCase().includes(search.toLowerCase()) || data.last_name.toLowerCase().includes(search.toLowerCase()) 
+                            || data.email.toLowerCase().includes(search.toLowerCase()) || data.gender.toLowerCase().includes(search.toLowerCase())
                             )
                             .slice(page * rowperpage, page * rowperpage + rowperpage) 
                             
