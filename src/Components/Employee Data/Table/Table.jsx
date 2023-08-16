@@ -12,7 +12,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -26,15 +27,22 @@ export  function EmployeData(){
         setId(id)
       setOpen(true);
     };
-  
+    const handleCloseNo = () =>{
+        setOpen(false)
+    }
     const handleClose = () => {
         axios({
             method:'delete',
             url:'http://localhost:3030/EmployeeData/'+id
         })
         window.location.reload()
-      setOpen(false);
+        setOpen(false);
     };
+    const notify = () => {
+        toast.error("Details Added Successfully", {
+            position: toast.POSITION.TOP_CENTER
+          });
+    }
 
     const[user,setUser]=useState([]);
     const navigate=useNavigate()
@@ -59,6 +67,8 @@ export  function EmployeData(){
             url:'http://localhost:3030/EmployeeData'
         }).then(res=>{
             setUser(res.data);
+        }).catch(err=>{
+            console.log(err,'Axios Error')
         })
     }
     useEffect(()=>{
@@ -157,7 +167,7 @@ export  function EmployeData(){
                 </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                <Button onClick={handleClose}>No</Button>
+                <Button onClick={handleCloseNo}>No</Button>
                 <Button onClick={handleClose} autoFocus>
                     Yes
                 </Button>

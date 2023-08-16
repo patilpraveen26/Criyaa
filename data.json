@@ -1,24 +1,6 @@
 {
   "EmployeeData": [
     {
-      "first_name": "Katharine",
-      "last_name": "Morcomb",
-      "DOB": "2/28/2023",
-      "gender": "Female",
-      "email": "kmorcomb0@twitter.com",
-      "Phone": "+7 374 502 7146",
-      "id": 1
-    },
-    {
-      "first_name": "John",
-      "last_name": "Chaplyn",
-      "DOB": "3/30/2023",
-      "gender": "Female",
-      "email": "gchaplyn1@joomla.org",
-      "Phone": "+970 540 828 3405",
-      "id": 2
-    },
-    {
       "id": 3,
       "first_name": "Ginnie",
       "last_name": "Redmore",

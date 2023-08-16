@@ -13,7 +13,7 @@ export function Edit_Details(){
     const[gender,setGender]=useState('');
     const[email,setEmail]=useState('');
     const[Phone,setPhone]=useState('');
-    const navigate = useNavigate()
+    const navigate = useNavigate()     
     const handleSubmit=(e)=>{
         e.preventDefault();
         const empdata={first_name,last_name,DOB,gender,email,Phone};
@@ -86,7 +86,7 @@ export function Edit_Details(){
                         <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
                         <Stack direction='row'spacing={2}>
                             <Button variant="contained" onClick={handleSubmit} color="success" type="submit">save</Button>
-                            <Button href="/empdetails" variant="contained" color="primary">Back</Button>
+                            <Button href="/empdetails" variant="contained" color="inherit">Back</Button>
                         </Stack> 
                     </Stack>
                </Grid>
