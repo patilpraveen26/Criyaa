@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import React, { useState } from "react"
-import { ToastContainer,toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button, ButtonBase, FormControlLabel, Paper, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
@@ -9,8 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-
-
+import MuiPhoneNumber from 'material-ui-phone-number';
 
 export function EmpCreate(){
     const[first_name,setFirst_name]=useState('');
@@ -29,7 +28,7 @@ export function EmpCreate(){
             data:empdata
         })
         notify();
-        // navigate('/empdetails')
+        navigate('/empdetails')
         // alert('Details Added Successfully')
     }
     const notify = () => {
@@ -37,7 +36,6 @@ export function EmpCreate(){
             position: toast.POSITION.TOP_CENTER
           });
     }
-    
     return(
         <React.Fragment>
             {/* <form  className="d-flex justify-content-center align-items-center container-fluid" style={{height:'70vh'}} onSubmit={handleSubmit}>
@@ -61,11 +59,11 @@ export function EmpCreate(){
                     <Link to='/empdetails' className="mt-2 btn btn-primary">Back</Link>
                 </dl>
             </form> */}
-            <ToastContainer/>
+            
             <Box display='flex' justifyContent={'center'}>
                 <Stack direction={"column"}  sx={{width: 300}} spacing={2}>
                 <Typography variant="h4">Employee-Add</Typography>
-                <TextField label='First Name' onChange={e=>setFirst_name(e.target.value)} />
+                <TextField label='First Name'  onChange={e=>setFirst_name(e.target.value)} />
                 <TextField label='Last Name'  onChange={e=>setLast_name(e.target.value)} />
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                     <DatePicker value={dayjs()} onChange={(newValue) => setDOB(newValue.format("DD-MM-YYYY"))}  label='DOB'/>
@@ -75,7 +73,8 @@ export function EmpCreate(){
                     <FormControlLabel  onChange={e=>setGender(e.target.value)} value='Female' control={<Radio/>} label='Female '/>
                 </RadioGroup>
                 <TextField label='Email' onChange={e=>setEmail(e.target.value)} />
-                <TextField label='Phone Number' onChange={e=>setPhone(e.target.value)} />
+                {/* <TextField label='Phone Number' onChange={e=>setPhone(e.target.value)} /> */}
+                <MuiPhoneNumber label="Enter Your Mobile Number" variant="outlined" defaultCountry={'in'}  onChange={value=>setPhone(value)} />
                 <Stack direction={'row'} spacing={2} >
                     <Button variant="contained" color="success" onClick={handleSubmit}>Save</Button>
                     <Button variant="contained" color="inherit" href="/empdetails">Back</Button>

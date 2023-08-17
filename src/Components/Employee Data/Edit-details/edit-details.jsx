@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
+import MuiPhoneNumber from 'material-ui-phone-number';
 
 export function Edit_Details(){
     const {empid}=useParams();
@@ -83,7 +84,8 @@ export function Edit_Details(){
                         <TextField label='DOB ' value={DOB} onChange={e=>setDOB(e.target.value)}></TextField>
                         <TextField label='Gender' value={gender} onChange={e=>setGender(e.target.value)}></TextField>
                         <TextField label='Email' value={email} onChange={e=>setEmail(e.target.value)}></TextField>
-                        <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField>
+                        {/* <TextField label='Phone' value={Phone} onChange={e=>setPhone(e.target.value)} ></TextField> */}
+                        <MuiPhoneNumber label="Enter Your Mobile Number" variant="outlined" defaultCountry={'in'} value={Phone}  onChange={value=>setPhone(value)} />
                         <Stack direction='row'spacing={2}>
                             <Button variant="contained" onClick={handleSubmit} color="success" type="submit">save</Button>
                             <Button href="/empdetails" variant="contained" color="inherit">Back</Button>

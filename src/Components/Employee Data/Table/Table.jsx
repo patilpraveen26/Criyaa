@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom"
 import DeleteIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box } from "@mui/system";
-// import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -35,11 +34,12 @@ export  function EmployeData(){
             method:'delete',
             url:'http://localhost:3030/EmployeeData/'+id
         })
-        window.location.reload()
+        notify()
         setOpen(false);
+        window.location.reload()
     };
     const notify = () => {
-        toast.error("Details Added Successfully", {
+        toast.error("Deleted Successfully", {
             position: toast.POSITION.TOP_CENTER
           });
     }
@@ -67,8 +67,6 @@ export  function EmployeData(){
             url:'http://localhost:3030/EmployeeData'
         }).then(res=>{
             setUser(res.data);
-        }).catch(err=>{
-            console.log(err,'Axios Error')
         })
     }
     useEffect(()=>{
@@ -151,8 +149,9 @@ export  function EmployeData(){
                 onPageChange={handlechangepage}
                 onRowsPerPageChange={handleRowsPerPage}
                 />
+                <ToastContainer/>
            </Paper> 
-                <Dialog
+            <Dialog
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
